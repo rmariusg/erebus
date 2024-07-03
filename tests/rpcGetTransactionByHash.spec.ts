@@ -1,14 +1,14 @@
 import { test, expect } from '@playwright/test';
 import { getEnvVar } from '../src/config';
 import { sendRpcRequest } from '../src/utils/rpcUtils';
+import { fetchLatestBlockAndTransactionHash } from '../src/utils/blockchainUtils';
 
 const nodeUrl = getEnvVar('SEPOLIA_NODE_URL');
 
 test.describe('eth_getTransactionByHash Method Tests', () => {
-  const validTransactionHash = '0xd4b2e80202cc55517c328412a7792772e1bdd925ac1a2120aeafe84316206ad3';
-
   test('Valid Request to Fetch Transaction by Hash', async ({ request }) => {
-    // Will fail. Need to implement creation of test eth
+    const validTransactionHash = await fetchLatestBlockAndTransactionHash(request);
+
     const response = await sendRpcRequest(
       request,
       nodeUrl,
@@ -28,6 +28,8 @@ test.describe('eth_getTransactionByHash Method Tests', () => {
   });
 
   test('Invalid Method Name', async ({ request }) => {
+    const validTransactionHash = await fetchLatestBlockAndTransactionHash(request);
+
     const response = await sendRpcRequest(
       request,
       nodeUrl,
@@ -41,6 +43,8 @@ test.describe('eth_getTransactionByHash Method Tests', () => {
   });
 
   test('Missing JSON-RPC Version', async ({ request }) => {
+    const validTransactionHash = await fetchLatestBlockAndTransactionHash(request);
+
     const response = await request.post(nodeUrl, {
       data: {
         method: 'eth_getTransactionByHash',
