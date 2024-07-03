@@ -16,6 +16,7 @@ Erebus is a practice testing framework designed to showcase automated tests for 
 
 - Node.js (>= 14.x)
 - npm (>= 6.x)
+- (optional) Docker (latest)
 
 ### Steps
 
@@ -71,7 +72,9 @@ erebus/
 
 ### Usage
 
-#### Running all tests
+#### Locally
+
+##### Running all tests
 
 ```bash
 npx playwright test
@@ -87,6 +90,16 @@ Example:
 
 ```bash
 npx playwright test login.spec.ts
+```
+
+#### Docker
+
+Please note that you have to have Docker Desktop installed.
+
+After creation the .env file, run the below command to run all tests:
+
+```bash
+docker-compose up --build
 ```
 
 Recommended VS Code plugins:
