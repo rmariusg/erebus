@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  erebus:
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    command: ['npx', 'playwright', 'test']

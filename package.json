@@ -9,6 +9,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/node": "^20.14.9",
+    "axios": "^1.7.2",
     "dotenv": "^16.4.5",
     "playwright": "^1.45.0",
     "ts-node": "^10.9.2"
