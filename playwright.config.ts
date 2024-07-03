@@ -11,17 +11,17 @@ export default defineConfig({
   reporter: 'html',
   use: {
     actionTimeout: 0,
-    baseURL: 'https://admin.moralis.io/',
+    baseURL: 'https://admin.moralis.io',
     trace: 'on-first-retry',
   },
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'], baseURL: 'https://admin.moralis.io' },
     },
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      use: { ...devices['Desktop Safari'], baseURL: 'https://admin.moralis.io' },
     },
   ],
   globalSetup: './setup.ts',
