@@ -11,7 +11,7 @@ export let options = {
 
 const apiUrl = 'https://deep-index.moralis.io/api/v2';
 const walletAddress = `${__ENV.WALLET_ADDRESS}`;
-const apiKey = `${__ENV.MORALIS_API_KEY}`;
+const apiKey = `${__ENV.API_KEY}`;
 
 export default function () {
   let res = http.get(`${apiUrl}/${walletAddress}/nft`, {

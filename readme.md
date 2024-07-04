@@ -102,6 +102,24 @@ After creation the .env file, run the below command to run all tests:
 docker-compose up --build
 ```
 
+#### Running with k6
+
+(not supported yet in docker)
+
+First, install k6 on your local machine (depending on OS).
+
+To run a specific test (from project root):
+
+```bash
+./run-k6.sh <path_to_test>.js
+```
+
+Example:
+
+```bash
+./run-k6.sh tests/k6-tests/getWalletNFTs.js
+```
+
 Recommended VS Code plugins:
 
 - `Playwright Test for VSCode` by Microsoft;
